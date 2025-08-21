@@ -7,6 +7,10 @@ print_greeting()
 
 def check_letter():
     letter = input("Enter a letter (a-z or A-Z): ")
+    if  not letter.isalpha():
+        print("Invalid input! Please enter a single letter (A–Z).")
+        return
+    
     handle_letter = letter.lower()
     vowels = "aeiou"
     if handle_letter in vowels:
@@ -78,7 +82,7 @@ def determine_season():
         season = "Spring"
     elif (month == "Jun" and day >= 21) or (month in ["Jul", "Aug"]) or (month == "Sep" and day <= 21):
         season = "Summer"
-    elif (month == "Sep" and day >= 22) or (month in ["Oct", "nov"]) or (month == "Dec" and day <= 20):
+    elif (month == "Sep" and day >= 22) or (month in ["Oct", "Nov"]) or (month == "Dec" and day <= 20):
         season = "Fall"
     else:
         print("Choose a valid day and month") 
@@ -104,5 +108,8 @@ def guess_number():
             print("Your guess is too high.")
         else:
             print("Sorry, you failed to guess the number in five attempts.")
+        
+        if attempt == max_attempts - 1:
+            print("Last chance!")
 
 guess_number()
